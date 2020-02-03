@@ -65,6 +65,6 @@ sudo minikube start --vm-driver=none
 sudo minikube status
 echo "All good, You are good to use your lab"
 ###################################################
-# Author: shank.iam88@gmail.com                   #
+# Author: shankarsundaram                         #
 ###################################################
 sleep 15
