@@ -1,6 +1,6 @@
 #!/bin/bash
 ########################
-# Kubectl
+# Kubectl              #
 ########################
 echo "Installing Kubectl"
 sudo apt-get update
@@ -12,7 +12,7 @@ kubectl version --client
 echo "Installation Complete: Kubectl"
 sleep 10
 ########################
-# git
+# git                  #
 ########################
 echo "Installing git"
 sudo apt-get update
@@ -21,7 +21,7 @@ git --version
 echo "Installation Complete: git"
 sleep 10
 ########################
-# Docker
+# Docker               #
 ########################
 echo "Removing previous docker versions if any"
 sudo apt-get remove docker docker-engine docker.io containerd runc
@@ -46,7 +46,7 @@ sudo docker version
 echo "Installation Complete: Docker"
 sleep 20
 ########################
-# Minikube
+# Minikube             #
 ########################
 echo "Installing Minikube"
 sudo apt-get update
@@ -58,13 +58,27 @@ sudo minikube status
 echo "Installation Complete: Minikube"
 sleep 10
 ########################
-# Starting Minikube
+# Starting Minikube    #
 ########################
 echo "Starting"
 sudo minikube start --vm-driver=none
 sudo minikube status
-echo "All good, You are good to use your lab"
+sleep 15
+########################
+# helm                 #
+########################
+echo "Installing Helm!"
+sudo apt-get update
+#helm dependency to avoid helm hangs in minikube
+sudo apt-get install -y socat 
+sudo curl https://raw.githubusercontent.com/kubernetes/helm/master/scripts/get > get_helm.sh
+sudo chmod 700 get_helm.sh
+sudo ./get_helm.sh
+sudo helm init
+helm search
+echo "Installation Complete: Helm"
+sleep 10
+echo "Your Kube Lab is Ready!"
 ###################################################
 # Author: shankarsundaram                         #
 ###################################################
-sleep 15
