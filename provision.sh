@@ -78,6 +78,16 @@ sudo helm init
 helm search
 echo "Installation Complete: Helm"
 sleep 10
+########################
+# Ansible              #
+########################
+echo "Installing Ansible!"
+sudo apt-get update
+sudo apt-add-repository --yes --update ppa:ansible/ansible
+sudo apt install ansible
+echo "Installation Complete: Ansible"
+sleep 10
+ansible --version
 echo "Your Kube Lab is Ready!"
 ###################################################
 # Author: shankarsundaram                         #
